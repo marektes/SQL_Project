@@ -35,4 +35,14 @@ select *
 from countries c 
 
 select *
-from economies e 
+from economies e
+
+--Vytvoření nové tabulky z "Czechia_Payroll" bez nerelevantních řádků (value_type_code = 316)
+
+create table czechia_payroll_filtered as
+select *
+from czechia_payroll
+where czechia_payroll.value_type_code = '5958'
+
+select *
+from czechia_payroll_filtered cpf 
