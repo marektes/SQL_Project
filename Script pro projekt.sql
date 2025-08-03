@@ -52,7 +52,7 @@ from czechia_payroll_filtered cpf
 where cpf.calculation_code = 100
 order by industry_branch_code, cpf.payroll_year 
 
----Úprava tabulky czechia_price. Vyfiltrování hodnot za celou ČR (region_code IS NULL) a zagregování cen na jednotlivé roky---
+--Úprava tabulky czechia_price. Vyfiltrování hodnot za celou ČR (region_code IS NULL) a zagregování cen na jednotlivé roky--
 
 CREATE TABLE czechia_price_filtered AS
 SELECT
@@ -63,4 +63,16 @@ FROM czechia_price
 WHERE region_code IS NULL
 GROUP BY EXTRACT(YEAR FROM date_from), category_code
 ORDER BY price_year, category_code;
+
+--Přidání názvů potravin z tabulky czechia_price_kategory--
+
+CREATE TABLE czechia_price_named AS
+SELECT
+    cpf.price_year AS year,
+    cpc.name AS food_name,
+    cpf.avg_price
+FROM czechia_price_filtered cpf
+JOIN czechia_price_category cpc
+    ON cpf.category_code = cpc.code
+ORDER BY cpf.price_year, cpc.name;
 
