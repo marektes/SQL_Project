@@ -100,6 +100,49 @@ JOIN czechia_price_named p
 ORDER BY p.food_name, s.year;
 
 select *
-from t_marek_tesar_project_sql_primary_final 
+from t_marek_tesar_project_sql_primary_final
 
+--1. Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?--
+--Zpravidla rostou. Existuje však 30 výjimek, ve kterých došlo v daném odvětví k poklesu oproti předchozímu roku--
+
+WITH payroll_annual_question1 AS (
+    SELECT
+        cpf.payroll_year AS year,
+        pib.name AS industry_name,
+        AVG(cpf.value) AS avg_salary
+    FROM czechia_payroll_filtered cpf
+    JOIN czechia_payroll_industry_branch pib
+        ON cpf.industry_branch_code = pib.code
+    GROUP BY cpf.payroll_year, pib.name
+)
+SELECT *
+FROM (
+    SELECT
+        industry_name,
+        year,
+        avg_salary,
+        LAG(avg_salary) OVER (PARTITION BY industry_name ORDER BY year) AS prev_year_salary,
+        (avg_salary - LAG(avg_salary) OVER (PARTITION BY industry_name ORDER BY year)) AS salary_diff
+    FROM payroll_annual_question1
+) sub
+WHERE salary_diff < 0
+ORDER BY industry_name, year;
+
+--2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?--
+--Na otázku odpovídá vytvořená tabulka t_marek_tesar_project_sql_primary_final.--
+
+--3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?--
+--Nejpomalejší meziroční nárůst lze pozorovat u cukru. Reálně šlo dokonce o pokles. Průměrný meziroční pokles činil u cukru 1,92 %--
+
+SELECT food_name, AVG(price_growth) AS avg_growth
+FROM (
+    SELECT
+        food_name,
+        (avg_price - LAG(avg_price) OVER (PARTITION BY food_name ORDER BY year))
+        / NULLIF(LAG(avg_price) OVER (PARTITION BY food_name ORDER BY year), 0) AS price_growth
+    FROM t_marek_tesar_project_SQL_primary_final
+) sub
+WHERE price_growth IS NOT NULL
+GROUP BY food_name
+ORDER BY avg_growth;
 
