@@ -1,6 +1,0 @@
-1. krok (řádek scriptu 1-40)
-
-Pro zorientování se v jednotlivých tabulkách jsem si vypsal všechny příkazy select *, ke kterým se budu moci v případě potřeby kdykoliv vrátit.
-
-2. krok
-
