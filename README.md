@@ -50,7 +50,7 @@ Základní analýza vztahu mezd a cen potravin v ČR.
 Nejvíce poklesů bylo zaznamenáno v roce 2013, kdy klesla mzda v 11 odvětvích. Následuje rok 2021 s poklesem v 5 odvětvích.
 Největší absolutní pokles nastal v roce 2013 v peněžnictví a pojišťovnictví - pokles o 4 479 Kč. Druhý největší pokles nastal v roce 2020 v odvětví „Činnosti v oblasti nemovitostí“ - pokles o 2 141 Kč.
 
-Objevují se poklesy soustředěné do „slabších“ let (zejména 2013 a částečně 2020–2021). Ve sledovaném období 2000-2021 byl zaznamenán pokles (roční) za jednotlivá odvětví v 30 případech - jedná se o 7,5 %. V 92,5 % případů tedy mzdy rostly. Celkový trend je však z dlouhodobého pohledu rostoucí. Poklesy mají charakter dočasných výkyvů. 
+- Objevují se poklesy soustředěné do „slabších“ let (zejména 2013 a částečně 2020–2021). Ve sledovaném období 2000-2021 byl zaznamenán pokles (roční) za jednotlivá odvětví v 30 případech - jedná se o 7,5 %. V 92,5 % případů tedy mzdy rostly. Celkový trend je však z dlouhodobého pohledu rostoucí. Poklesy mají charakter dočasných výkyvů. 
 
 
 ### 2. Kolik litrů mléka a kg chleba bylo možné koupit v prvním a posledním sledovaném roce?
@@ -70,4 +70,4 @@ Např. v roce 2009 nastal výrazný pokles HDP, který byl ve stejném a násled
 Oproti tomu v roce 2012 byl pozorován mírný pokles úrovně HDP, který však byl doprovázen výrazným růstem cenové hladiny.
 Je zřejmé, že do situace vstupují další zákonitosti, a cenová hladina a úroveň mezd není závislá pouze na hodnotě HDP.
 
-U samotných cen potravin nelze pozorovat prakticky žádnou korelaci se změnou HDP. Změna HDP může částečně predikovat, jakým směrem se budou vyvíjet mzdy v následujícím roce až dvou. Sledované období v délce 12 let (2007-2018) však nepovažuji za dostatečné - nelze vyvodit jednoznačné závěry.
+- U samotných cen potravin nelze pozorovat prakticky žádnou korelaci se změnou HDP. Změna HDP může částečně predikovat, jakým směrem se budou vyvíjet mzdy v následujícím roce až dvou. Sledované období v délce 12 let (2007-2018) však nepovažuji za dostatečné - nelze vyvodit jednoznačné závěry.
