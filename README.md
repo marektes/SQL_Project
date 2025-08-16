@@ -49,7 +49,8 @@ Základní analýza vztahu mezd a cen potravin v ČR.
 - Odpověď: Většinou ano, ale vyskytlo se 30 případů poklesu.
 
 ### 2. Kolik litrů mléka a kg chleba bylo možné koupit v prvním a posledním sledovaném roce?
-- Odpověď nalezena v tabulce `t_marek_tesar_project_sql_primary_final`.
+- Prvním sledovaným rokem je rok 2006 a posledním 2018. V roce 2006 činila průměrná mzda v ČR 20 677 Kč a v roce 2018 32 485 Kč.
+Cena chleba v roce 2006 činila 16,12 Kč za kilo a v roce 2018 24,24 Kč za kilo. Cena mléka v roce 2006 byla 14,44 Kč za litr a v roce 2018 19,82 Kč za litr. Z uvedených hodnot vyplývá, že v roce 2006 bylo možné za průměrnou mzdu pořídit 1 282 kg kmínového konzumního chleba nebo 1 432 litrů polotučného pasterovaného mléka. V roce 2018 bylo možné pořídit 1 340 kg chleba nebo 1 639 litrů mléka. V roce 2018 bylo možné pořídit si za průměrnou mzdu o 4,5 % více chleba než v roce 2006. V případě mléka jde o nárůst o 14,5 %.
 
 ### 3. Která potravina zdražuje nejpomaleji?
 - Cukr – průměrný meziroční pokles ceny 1,92 %.

@@ -1,41 +1,3 @@
---Primární tabulky--
-
-select *
-from czechia_payroll cp 
-
-select *
-from czechia_payroll_calculation cpc 
-
-select *
-from czechia_payroll_industry_branch cpib 
-
-select *
-from czechia_payroll_unit cpu 
-
-select *
-from czechia_payroll_value_type cpvt 
-
-select *
-from czechia_price cp 
-
-select *
-from czechia_price_category cpc 
-
---Číselníky sdílených informací o ČR--
-
-select *
-from czechia_region cr 
-
-select *
-from czechia_district cd 
-
---Dodatečné tabulky--
-
-select *
-from countries c 
-
-select *
-from economies e
 
 --Vytvoření nové tabulky z "Czechia_Payroll" bez nerelevantních řádků (value_type_code = 316)
 
@@ -99,9 +61,6 @@ JOIN czechia_price_named p
     ON s.year = p.year
 ORDER BY p.food_name, s.year;
 
-select *
-from t_marek_tesar_project_sql_primary_final
-
 --V tomto kroku vytvořím sekundární tabulku s HDP, GINI koeficientem a populací dalších evropských států--
 --Využiju k tomu data z tabulky economies. Jako poslední sloupec jsem přidal hodnotu HDP na hlavu (GDP per capita)--
 
@@ -157,6 +116,15 @@ ORDER BY industry_name, year;
 
 --2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?--
 --Na otázku odpovídá vytvořená tabulka t_marek_tesar_project_sql_primary_final.--
+
+SELECT *
+FROM t_marek_tesar_project_SQL_primary_final
+WHERE food_name IN ('Mléko polotučné pasterované', 'Chléb konzumní kmínový')
+  AND year IN (
+    (SELECT MIN(year) FROM t_marek_tesar_project_SQL_primary_final),
+    (SELECT MAX(year) FROM t_marek_tesar_project_SQL_primary_final)
+)
+ORDER BY food_name, year;
 
 --3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší percentuální meziroční nárůst)?--
 --Nejpomalejší meziroční nárůst lze pozorovat u cukru. Reálně šlo dokonce o pokles. Průměrný meziroční pokles činil u cukru 1,92 %--
