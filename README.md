@@ -64,6 +64,8 @@ Všechny ostatní sledované potraviny zdražovaly. Nejméně zdražovaly banán
 ### 4. Existuje rok, kdy byly ceny výrazně rychlejší než mzdy (více než o 10 %) ?
 - Takový rok neexistuje. Největší zjištěný rozdíl je 6,6 % v roce 2013. Průměrná cena všech potravin v tomto roce vzrostla meziročně (ve srovnání s rokem 2012) o 5,1 %, kdežto průměrná mzda za všechny odvětví klesla meziročně o 1,5 %.
 
+Poskytnuté datové soubory nepokrývají poslední roky. V rámci této otázky by bylo zajímavé použít aktuální data. V roce 2022 totiž činila průměrná roční míra inflace 15,1 % (údaj ČSÚ). Je tedy možné, že by v tomto roce byl rozdíl růstu cen potravin oproti mzdám vyšší než zmíněných 10 %.
+
 ### 5. Má výška HDP vliv na změny ve mzdách a cenách potravin? Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?
 - Souvislost mezi změnou HDP na jedné straně a změnou mezd a cen na straně druhé je nejednoznačná.
 Např. v roce 2009 nastal výrazný pokles HDP (-4,66 %), který byl ve stejném a následujícím roce doprovázen velmi nízkých růstem mezd a cen(ve stejném roce ceny dokonce výrazně poklesly o 6,41 %).
