@@ -1,18 +1,13 @@
 
---Vytvoření nové tabulky z "Czechia_Payroll" bez nerelevantních řádků (value_type_code = 316)
+--Vytvoření nové tabulky z "Czechia_Payroll" bez nerelevantních řádků (value_type_code = 316).--
+--Navíc byly vyfiltrovány pouze řádky s Calculation_code = 100. Lepší varianta pro pozdější srovnávání s cenami potravin,--
+--protože bere v potaz částečné úvazky a nepřepočítává je na plné úvazky.--
 
 create table czechia_payroll_filtered as
 select *
 from czechia_payroll
 where czechia_payroll.value_type_code = '5958'
-
---Výběr řádků s Calculation_code = 100. Lepší varianta pro pozdější srovnávání s cenami--
---potravin, protože bere v potaz částečné úvazky a nepřepočítává je na plné úvazky.--
-
-select *
-from czechia_payroll_filtered cpf
-where cpf.calculation_code = 100
-order by industry_branch_code, cpf.payroll_year 
+and calculation_code = 100;
 
 --Úprava tabulky czechia_price. Vyfiltrování hodnot za celou ČR (region_code IS NULL) a zagregování cen na jednotlivé roky--
 
@@ -84,10 +79,6 @@ WHERE country IN (
 AND year BETWEEN 2006 AND 2018
 ORDER BY country, year;
 
-select *
-from t_marek_tesar_project_sql_secondary_final tmtpssf 
-
-
 --1. Rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?--
 
 WITH payroll_annual_question1 AS (
@@ -110,7 +101,7 @@ FROM (
         (avg_salary - LAG(avg_salary) OVER (PARTITION BY industry_name ORDER BY year)) AS salary_diff
     FROM payroll_annual_question1
 ) sub
-WHERE salary_diff < 0
+WHERE salary_diff > 0
 ORDER BY industry_name, year;
 
 --2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období v dostupných datech cen a mezd?--
@@ -151,7 +142,7 @@ FROM (
     FROM t_marek_tesar_project_SQL_primary_final
     GROUP BY year
 ) sub
-WHERE (price_growth_pct - salary_growth_pct) > 10;
+WHERE (price_growth_pct - salary_growth_pct) > 5;
 
 --5. Má výška HDP vliv na změny ve mzdách a cenách potravin?--
 --Neboli, pokud HDP vzroste výrazněji v jednom roce, projeví se to na cenách potravin či mzdách ve stejném nebo následujícím roce výraznějším růstem?--
