@@ -3,7 +3,7 @@
 --Navíc byly vyfiltrovány pouze řádky s Calculation_code = 100. Lepší varianta pro pozdější srovnávání s cenami potravin,--
 --protože bere v potaz částečné úvazky a nepřepočítává je na plné úvazky.--
 
-create table czechia_payroll_filtered as
+CREATE TABLE czechia_payroll_filtered as
 select *
 from czechia_payroll
 where czechia_payroll.value_type_code = '5958'
